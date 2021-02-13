@@ -4,11 +4,12 @@ from tensorflow.keras.layers import Input, Dense
 
 class Umbrella:
     def __init__(self, input_shape=(224, 224, 3),factor=1, ):
-        self.inputs = Input(shape=input_shape)
-        self.x = self.inputs
+        inputs = Input(shape=input_shape)
+        print(inputs)
+        self.x = inputs
         self.deploy()
         self.factor = factor
-        self.model = Model(self.inputs, self.x)
+        self.model = Model(inputs, self.x)
         
     
 class Linear(tf.keras.layers.Layer):

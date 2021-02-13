@@ -10,7 +10,7 @@ is_channel_fist = False
 
 class ResNet(Umbrella):
   def __init__(self, *args, **kwargs):
-    super(ResNet, self).__init__(*args, **kwargs)
+    super().__init__(*args, **kwargs)
     self.label_dim = 10
 
   def get_residual_layer(self):

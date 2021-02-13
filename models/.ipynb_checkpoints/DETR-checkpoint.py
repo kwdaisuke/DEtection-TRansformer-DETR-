@@ -7,8 +7,9 @@ from transformer import Transformer
 from model import Linear
 
 class DETR(Umbrella):
-    def __init__(self, *args, **kwargs):
-        super(DETR, self).__init__(*args, **kwargs)
+    def __init__(self,  *args, **kwargs):
+        self.num_classes = 91
+        super().__init__(*args, **kwargs)
         #elf.num_queries = num_queries
 
         
@@ -20,7 +21,7 @@ class DETR(Umbrella):
         
         # Positional Encodings(object queries)
         self.encoder = PositionEmbeddingSine(num_pos_features=self.model_dim//2, normalize = True)
-        self.class_embed = Linear(num_classes + 1, )
+        self.class_embed = Linear(self.num_classes + 1, )
         self.embedding = Linear(self.model_dim)
         self.activation = ReLU()
         
@@ -29,16 +30,16 @@ class DETR(Umbrella):
         
         
     def call(self):    
-        x = self.backbone(x)
-        x = self.downsample_masks(masks, x)
-        x = self.encoder(x)
-        x = self.transformer(self.input_proj(x))
+        self.x = self.backbone(self.x)
+        self.x = self.downsample_masks(masks, self.x)
+        self.x = self.encoder(self.x)
+        self.x = self.transformer(self.input_proj(self.x))
         
-        outputs_class = self.class_embeded(x)
+        outputs_class = self.class_embeded(self.x)
         
-        x = self.activation(self.embedding(x))
-        x = self.activation(self.embedding(x))
-        outputs_coordinate = tf.sigmoid(self.embedding(x))
+        self.x = self.activation(self.embedding(self.x))
+        self.x = self.activation(self.embedding(self.x))
+        outputs_coordinate = tf.sigmoid(self.embedding(self.x))
         
         output = {"pred_logits": outputs_class[-1],
                   "pred_boxes": outputs_coordinate[-1]}
@@ -49,12 +50,12 @@ class DETR(Umbrella):
     
     
     def downsample_masks(self, masks, x):
-        x = tf.cast(masks, tf.int32)
-        x = tf.expand_dims(x, -1)
-        x = tf.compat.v1.image_resize_nearest_neighbor(
-                x, tf.shape(x)[1:3], align_corners=False, half_pixel_centers=False)
-        x = tf.squeeze(x, -1)
-        x = tf.cast(x, tf.bool)
+        self.x = tf.cast(masks, tf.int32)
+        self.x = tf.expand_dims(self.x, -1)
+        self.x = tf.compat.v1.image_resize_nearest_neighbor(
+                self.x, tf.shape(x)[1:3], align_corners=False, half_pixel_centers=False)
+        self.x = tf.squeeze(self.x, -1)
+        self.x = tf.cast(self.x, tf.bool)
         return x
    
 
