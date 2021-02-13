@@ -5,3 +5,5 @@ This is my attempt of replicating [DETR](https://github.com/facebookresearch/det
 Reference: \
 Leonardo-Blanger's amazing work:
 https://github.com/Leonardo-Blanger/detr_tensorflow
+
+![](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Partitioning.png)
