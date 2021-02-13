@@ -1,12 +1,15 @@
 import tensorflow as tf
-from tensorflow.keras.layers import Conv2D, ReLU, Linear
-import umbrella
+from tensorflow.keras.layers import Conv2D, ReLU
+from model import Umbrella
+from backbone import ResNet50
+from position_embeddings import PositionEmbeddingSine
+from transformer import Transformer
+from model import Linear
 
-
-class DETR(umbrella):
+class DETR(Umbrella):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.num_queries = num_queries
+        super(DETR, self).__init__(*args, **kwargs)
+        #elf.num_queries = num_queries
 
         
     def deploy(self):      
@@ -16,7 +19,7 @@ class DETR(umbrella):
         self.model_dim = self.transformer.model_dim
         
         # Positional Encodings(object queries)
-        self.encoder = PositionalEmbeddingSine(pos_features=self.model_dim//2, normalize = True)
+        self.encoder = PositionEmbeddingSine(num_pos_features=self.model_dim//2, normalize = True)
         self.class_embed = Linear(num_classes + 1, )
         self.embedding = Linear(self.model_dim)
         self.activation = ReLU()
@@ -56,16 +59,18 @@ class DETR(umbrella):
    
 
     def post_process(self, output):
-        logits, boxes = [output[k] for k in ["pred_logits", ,"pred_boxes"]]
+        logits, boxes = [output[k] for k in ["pred_logits" ,"pred_boxes"]]
         probs = tf.nn.softmax(logits, axis=-1)[..., :-1]
         scores = tf.reduce_max(probs, axis=-1)
         labels = tf.argmax(probs, axis=-1)
         boxes = frame(boxes)
         
         output = {"scores": scores,
-                   "labels": labels.
+                   "labels": labels,
                    "boxes": boxes}
         return output
                     
     
     
+if __name__ == "__main__":
+    detr = DETR()
