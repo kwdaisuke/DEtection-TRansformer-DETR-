@@ -13,20 +13,20 @@ in the same way the development of FPN [22] did for Faster R-CNN(1).
 1. Segmentation with DEtection-TRansformer(DETR) and detectron2 
 2. My attempt of replicating [DETR](https://github.com/facebookresearch/detr) with Tensorflow
 
-Original: \
+**Original**: \
 ![Original](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/portrait-5378357_1920.jpg)
 
-Partitioning: \
+**Partitioning**: \
 ![Partitioning](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Partitioning.png)
 
 
-Segmentation: \
+**Segmentation**: \
 ![Segmentation](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Segmentation.png)
 
 
 
 ## Reference: 
 1. End-to-End Object Detection with Transformers, Facebook AI
-2. 
+2. Publisher's GitHub https://github.com/facebookresearch/detr
 3. Leonardo-Blanger's amazing work:
 https://github.com/Leonardo-Blanger/detr_tensorflow
