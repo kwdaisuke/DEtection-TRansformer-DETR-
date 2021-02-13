@@ -7,7 +7,7 @@ improved since the original publication. Our experiments show that our new
 model achieves comparable performances. More precisely, DETR demonstrates
 significantly better performance on large objects, a result likely enabled by the
 non-local computations of the transformer. It obtains, however, lower performances on small objects. We expect that future work will improve this aspect
-in the same way the development of FPN [22] did for Faster R-CNN(1).
+in the same way the development of FPN did for Faster R-CNN(1).
 
 ## Outline
 1. Segmentation with DEtection-TRansformer(DETR) and detectron2 
