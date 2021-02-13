@@ -1,7 +1,7 @@
 # DEtection-TRansformer-DETR-
 
 ## Outline
-1. Segmentation with DEtection-TRansformer(DETR) and detectron2 \
+1. Segmentation with DEtection-TRansformer(DETR) and detectron2 
 2. My attempt of replicating [DETR](https://github.com/facebookresearch/detr) with Tensorflow
 
 Original: \
