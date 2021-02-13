@@ -1,4 +1,13 @@
-# DEtection-TRansformer-DETR-
+## DEtection-TRansformer-DETR-
+
+![DETR](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/DETR.png)
+We evaluate DETR on one of the most popular object detection datasets,
+COCO, against a very competitive Faster R-CNN baseline. Faster RCNN has undergone many design iterations and its performance was greatly
+improved since the original publication. Our experiments show that our new
+model achieves comparable performances. More precisely, DETR demonstrates
+significantly better performance on large objects, a result likely enabled by the
+non-local computations of the transformer. It obtains, however, lower performances on small objects. We expect that future work will improve this aspect
+in the same way the development of FPN [22] did for Faster R-CNN.
 
 ## Outline
 1. Segmentation with DEtection-TRansformer(DETR) and detectron2 
@@ -17,5 +26,7 @@ Segmentation: \
 
 
 ## Reference: 
-Leonardo-Blanger's amazing work:
+1. End-to-End Object Detection with Transformers, Facebook AI
+2. 
+3. Leonardo-Blanger's amazing work:
 https://github.com/Leonardo-Blanger/detr_tensorflow
