@@ -6,4 +6,8 @@ Reference: \
 Leonardo-Blanger's amazing work:
 https://github.com/Leonardo-Blanger/detr_tensorflow
 
-![](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Partitioning.png)
+![Partitioning](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Partitioning.png)
+
+
+
+![Segmentation](https://github.com/kwdaisuke/DEtection-TRansformer-DETR-/blob/main/Images/Segmentation.png)
