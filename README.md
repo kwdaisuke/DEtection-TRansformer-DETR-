@@ -26,7 +26,7 @@ in the same way the development of FPN did for Faster R-CNN(1).
 
 
 ## Reference: 
-1. End-to-End Object Detection with Transformers, Facebook AI
-2. Publisher's GitHub https://github.com/facebookresearch/detr
+1. Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, Sergey Zagoruyko, End-to-end Object Detection with Transformers, 2020, from the Facebook AI
+2. The official GitHub repository: https://github.com/facebookresearch/detr
 3. Leonardo-Blanger's amazing work:
 https://github.com/Leonardo-Blanger/detr_tensorflow
