@@ -5,8 +5,15 @@ from typing import List, Optional
 import tensorflow as tf
 from PIL import Image
 
+from util.misc import NestedTensor, interpolate, nested_tensor_from_tensor_list
 
-class PostProcessPanopting(tf.keras.Models):
+try:
+    from panopticapi.utils import id2rgb, rgb2id
+except ImportError:
+    pass
+
+
+class PostProcessPanoptic(tf.keras.Models):
     
     def __init__(self, is_thing_map, threshold=0.85):
         
