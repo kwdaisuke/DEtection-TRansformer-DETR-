@@ -1,5 +1,5 @@
 import tensorflow as tf
-from model import Umbrella
+from model import BaseModel
 from tensorflow.keras.layers import ZeroPadding2D, Conv2D, ReLU, MaxPool2D, MaxPooling2D, BatchNormalization, Activation, Add, GlobalAveragePooling2D, Dense
 
 weight_init = tf.keras.initializers.VarianceScaling()
@@ -8,7 +8,7 @@ weight_regularizer = tf.keras.regularizers.l2(l=0.0001)
 is_channel_fist = False
 
 
-class ResNet(Umbrella):
+class ResNet(BaseModel):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.label_dim = 10
@@ -116,3 +116,10 @@ class ResNet50(ResNet):
     self.res_n = 50
     super().__init__(*args, **kwargs)
     
+    
+class ResNet101(ResNet):
+  def __init__(self, *args, **kwargs):
+    self.res_n = 101
+    super().__init__(*args, **kwargs)
+    
+

@@ -2,9 +2,9 @@ import tensorflow as tf
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Dense
 
-class Umbrella:
+class BaseModel:
     def __init__(self, input_shape=(224, 224, 3),factor=1, ):
-        inputs = Input(shape=input_shape)
+        inputs = tf.keras.layers.Input(shape=input_shape)
         print(inputs)
         self.x = inputs
         self.deploy()
